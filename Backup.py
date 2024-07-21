@@ -4,8 +4,8 @@ import os
 import subprocess 
 import time 
 # 源路径
-home_source_pathes = {'/home/PILIHU/.config/nvim','/home/PILIHU/.config/dunst','/home/PILIHU/.config/hypr','/home/PILIHU/.config/ranger','/home/PILIHU/.zprofile','/home/PILIHU/.zshrc','/home/PILIHU/.zprofile','/home/PILIHU/.config/zsh.d'}
-etc_source_pathes = {'/etc/clash-meta','/etc/doas.conf','/etc/pacman.conf','/etc/paru.conf'}
+home_source_pathes = ('/home/PILIHU/.config/nvim','/home/PILIHU/.config/dunst','/home/PILIHU/.config/hypr','/home/PILIHU/.config/ranger','/home/PILIHU/.zprofile','/home/PILIHU/.zshrc','/home/PILIHU/.zprofile','/home/PILIHU/.config/zsh.d')
+etc_source_pathes = ('/etc/clash-meta','/etc/doas.conf','/etc/pacman.conf','/etc/paru.conf')
 
 # 目标文件夹(若打算上传到GitHub需有git版本控制)
 home_target_path = '/Back_up/My-Config/config'
@@ -29,12 +29,3 @@ while 2+2 == 4:
         subprocess.run(['cp','-r',etc_source_path,etc_target_path])
         os.system("notify-send '已将文件复制到/Back_up/My-Config/etc文件夹,详情见~/Backup.py'")
     time.sleep(1800)
-
-def upload_to_GitHub():
-    repo_path = dest_path
-    subprocess.run(['git','add','.'],cwd=repo_path)
-    subprocess.run(['git','comment','-m','"Add some files or folders to backup to GitHub."'])
-    subprocess.run(['git','push','origin','main'])
-    os.system()# 加通知命令
-
-# upload_to_GitHub()
