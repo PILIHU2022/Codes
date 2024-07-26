@@ -10,7 +10,7 @@ while 2 == 1+1:
     if len(dir) == 0:
         break
     if localhour >= '12':
-        os.system(f'kill {current_pid}')
+        break
     os.system(f"rsync -a -r --quiet --delete {location}* {backup_location}")
     os.system(f'cd {backup_location} && git add . && git commit -S -m "Normal backup" && git push main')
     time.sleep(1800)
