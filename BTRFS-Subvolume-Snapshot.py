@@ -14,10 +14,10 @@ import time
 location = '/Snapshots1'
 unfull_date = time.strftime('%Y-%m', time.localtime())
 today_dated = int(time.strftime('%d', time.localtime()))
-before_dated = today_dated - 1
-before_full_date = f'{unfull_date}-{before_dated}'
+yesterday_date_of_day = today_dated - 1
+yesterday_full_date = f'{unfull_date}-{before_dated}'
 today_date = time.strftime('%Y-%m-%d', time.localtime())
 # Btrfs delete yesterday's snapshot
-os.system(f'doas btrfs subvolume delete  / {location}/{before_full_da
+os.system(f'doas btrfs subvolume delete  / {location}/{yesterday_full_date')
 # Btrfs create today's snapshot for root(/)
 os.system(f'doas btrfs subvolume snapshot / {location}/{today_date}')
