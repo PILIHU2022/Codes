@@ -19,7 +19,7 @@ yesterday_full_date = f'{unfull_date}-{yesterday_date_of_day}'
 today_date = time.strftime('%Y-%m-%d', time.localtime())
 if yesterday_date_of_day = 0:
     if 
-# # Btrfs delete yesterday's snapshot
-# os.system(f'doas btrfs subvolume delete  / {location}/{yesterday_full_date}')
-# # Btrfs create today's snapshot for root(/)
-# os.system(f'doas btrfs subvolume snapshot / {location}/{today_date}')
+# Btrfs delete yesterday's snapshot
+os.system(f'doas btrfs subvolume delete  / {location}/{yesterday_full_date}')
+# Btrfs create today's snapshot for root(/)
+os.system(f'doas btrfs subvolume snapshot / {location}/{today_date}')
