@@ -12,5 +12,5 @@ while 2 == 1+1:
     if localhour >= '12':
         os.system(f'kill {current_pid}')
     os.system(f"rsync -a -r --quiet --delete {location}* {backup_location}")
-    os.system(f'cd {backup_location} && git add . && git commit -S -m "Normal backup" && git push main')
+    # os.system(f'cd {backup_location} && git add . && git commit -S -m "Normal backup" && git push main')
     time.sleep(1800)
