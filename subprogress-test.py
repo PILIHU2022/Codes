@@ -5,10 +5,20 @@ os.system("touch DNS-Checker-py.result")
 with open('./DNS.list') as dns_list:
     for dns in dns_list:
         dig = f'dig @{dns} github.com'
-        dig_subprocess = subprocess.Popen(dig.split(), stdout=subprocess.PIPE, text=True)
+        dig_subprocess = subprocess.Popen(
+            dig.split(),
+            stdout=subprocess.PIPE,
+            text=True
+            )
         # grep_subprocess = subprocess.Popen(grep.split(), stdin=dig_subprocess.stdout, stdout=subprocess.PIPE)
-        grep_subprocess = subprocess.Popen(['grep','";; Query time: "'], stdin=dig_subprocess.stdout, stdout=subprocess.PIPE, text=True)
-        print(grep_subprocess.communicate()) # Can't get current result(';; Query time: **ms')
+        grep_subprocess = subprocess.Popen(
+            ['grep', '''Query time:'''],
+            stdin=dig_subprocess.stdout, 
+            stdout=subprocess.PIPE, 
+            text=True
+        )
+        grep_output,_ = grep_subprocess.communicate()
+        print(grep_output)
 # wirte result into file
 with open('./DNS-Checker-py.result') as result:
     with open('./DNS.list') as dns_list_w:
