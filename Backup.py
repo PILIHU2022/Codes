@@ -1,4 +1,4 @@
-# This is a backup script to copy some config files or folders to make sure that you backuped.
+# This is a backup script to copy some config files or folders to make sure that you backuped. Backup once per 30 minutes
 # Written in Python by PILIHU with Baidu Wenyanyixin AI
 import os 
 import subprocess 
