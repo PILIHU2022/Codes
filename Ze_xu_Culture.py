@@ -4,6 +4,7 @@
 # Only use to take a part in the Ze Xu Culture programming competition
 # This file in licensed under the CC BY-NC-ND license.
 # NOTE: You mustn't use this programming work to take a part in Humen No.3 Middle School's computer programming competition.
+# See GitHub https://github.com/PILIHU2022/Codes/blob/main/Ze_xu_Culture.py
 import os
 
 print(
