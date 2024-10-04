@@ -26,7 +26,9 @@ with open("./DNS.list") as dns_list:
 
 # wirte result into file,incomplete
 with open("./DNS-Checker-py.result", "w") as result:
-        # To make sure that it can print one result for each DNS.
-        # sed_subprocess = subprocess.Popen(['sed','s/;; Query time: /Query time:/'], stdin=grep_subprocess.stdout)
-        # output = dig_subprocess.communicate()[0]
-        # print('grep','\';; Query time: \'')
+    # To make sure that it can print one result for each DNS.
+    sed_subprocess = subprocess.Popen(
+        ["sed", "s/;; Query time: /Query time:/"], stdin=grep_subprocess.stdout
+    )
+    output = dig_subprocess.communicate()[0]
+    print("grep", "';; Query time: '")
