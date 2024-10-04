@@ -2,6 +2,8 @@
 # Date:2024-10-04
 # Version:1.0.0
 # Only use to take a part in the Ze Xu Culture programming competition
+# This file in licensed under the CC BY-NC-ND license.
+# NOTE: You shouldn't use this programming work to take a part in Humen No.3 Middle School's computer programming competition.
 import os
 
 print(
