@@ -1,4 +1,4 @@
-# Another:PILIHU(Spark)
+# Another:915-16 郑钧鹏
 # Date:2024-10-04
 # Version:1.0.0
 # Only use to take a part in the Ze Xu Culture programming competition
@@ -12,16 +12,29 @@ print(
 )
 
 # Get directory to operate
-source_directory = input("请输入你想要操作的文件夹(仅一个,路径无须在后面加`/`):")
-target_directory = input("请输入你想要操作的目标文件夹(仅一个):")
+source_directories = []
+target_directories = []
+
+get_source_directory = ""
+while True:
+    get_source_directory = input(
+        "请输入你想要操作的文件夹(仅一个,路径无须在后面加`/`, 退出请输入`!q`):"
+    )
+    if get_source_directory == "!q":
+        break
+    get_target_directory = input("请输入你想要操作的目标文件夹(仅一个):")
+    source_directories.append(get_source_directory)
+    target_directories.append(get_target_directory)
 
 
 def __move_directory():
-    files_in_target_directory = len(os.listdir(f"{target_directory}"))
-    if files_in_target_directory == 0:
+    for source_directory, target_directory in zip(
+        source_directories, target_directories
+    ):
+        # Copy the full folder to target directory
         os.system(f"rsync -a -r --delete {source_directory}/* {target_directory}")
-    else:
-        os.system(f"rsync -a -r --delete {source_directory} {target_directory}")
+        # Copy each file in the source directory
+        # os.system(f"rsync -a -r --delete {source_directory} {target_directory}")
 
 
 def __print_ze_xu_information():
