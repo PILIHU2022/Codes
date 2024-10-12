@@ -1,15 +1,27 @@
 # Another:PILIHU(Spark)
-# Date:2024-10-04
-# Version:1.0.0
+# CreateDate:2024-10-04
+# Update: 2024-10-12
+# Version:1.1.0
 # Only use to take a part in the Ze Xu Culture programming competition
 # This file in licensed under the CC BY-NC-ND license.
 # NOTE: You mustn't use this programming work to take a part in Humen No.3 Middle School's computer programming competition.
 # See GitHub https://github.com/PILIHU2022/Codes/blob/main/Ze_xu_Culture.py
 import os
+import time
 
 print(
-    "该程序是用于将某文件夹备份到另外一个文件夹,若文件夹中已有文件,则将一整个文件夹复制到目标文件夹"
+    "该程序是用于将某文件夹备份到另外一个文件夹,询问用户输入代号(1或2),若为`1`则将一整个文件夹复制到目标文件夹,为`2`则将某文件夹中的所有文件复制到目标文件夹中"
 )
+
+while True:
+    confirm = input(
+        "请问你:1.想将某文件夹一整个备份到另外一个文件夹，或是2.想将某文件夹下的所有文件复制到目标文件夹中：(1或2)"
+    )
+    if confirm == "1" or confirm == "2":
+        break
+    else:
+        print("请输入1或2")
+
 
 # Get directory to operate
 source_directories = []
@@ -27,14 +39,20 @@ while True:
     target_directories.append(get_target_directory)
 
 
-def __move_directory():
+def __move_full_directory():
     for source_directory, target_directory in zip(
         source_directories, target_directories
     ):
         # Copy the full folder to target directory
         os.system(f"rsync -a -r --delete {source_directory}/* {target_directory}")
-        # Copy each file in the source directory
-        # os.system(f"rsync -a -r --delete {source_directory} {target_directory}")
+
+
+def __move_each_file_in_directory():
+    # Copy each file in the source directory
+    for source_directory, target_directory in zip(
+        source_directories, target_directories
+    ):
+        os.system(f"rsync -a -r --delete {source_directory} {target_directory}")
 
 
 def __print_ze_xu_information():
@@ -46,6 +64,7 @@ def __print_ze_xu_information():
 然后, 我们再来了解一下林则徐虎门销烟:
     """
     )
+    time.sleep(5)
 
 
 def __print_information_of_Humen_gunsmoke():
@@ -55,6 +74,7 @@ def __print_information_of_Humen_gunsmoke():
     ]
     for each_information_of_Humen_gunsmoke in some_information_of_Humen_gunsmoke:
         print(f"{each_information_of_Humen_gunsmoke}\n")
+    time.sleep(5)
 
 
 def __print_poem_of_ze_xu():
@@ -70,6 +90,9 @@ __print_ze_xu_information()
 __print_information_of_Humen_gunsmoke()
 print("最后, 我们来领略一下林则徐所写的名言警句:\n")
 __print_poem_of_ze_xu()
+if confirm == "1":
+    __move_full_directory()
+elif confirm == "2":
+    __move_each_file_in_directory()
 print("任务执行完毕, 退出可能需要时间, 请耐心等待")
-__move_directory()
 print("感谢使用!")
