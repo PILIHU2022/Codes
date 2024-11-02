@@ -1,7 +1,7 @@
 import spotipy
 
-client_id = "89f58e8dcb254c8d9f4cabdaa684a26e"
-client_secret = "d36cad28cf4c4c5c8ffd97251f29a242"
+client_id = "Your_client_id"
+client_secret = "Your_client_secret"
 client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(
     client_id=client_id, client_secret=client_secret
 )
